@@ -1,8 +1,9 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-class Stack{
-	
+class Stack {
 	private int top = -1;
 	private ArrayList<Integer> lst = new ArrayList<>();
 	public void push(int x) {
@@ -12,10 +13,8 @@ class Stack{
 	public void pop() {	
 		if(top==-1)
 			System.out.println(top);
-		else {
-			System.out.println(lst.remove(top));
-			top--;
-		}			
+		else 
+			System.out.println(lst.remove(top--));			
 	}
 	public void size() {
 		System.out.println(lst.size());
@@ -35,31 +34,23 @@ class Stack{
 }
 
 public class Num10828 {
-	
-	public static void main(String[]args) {
-		
-		Scanner scan = new Scanner(System.in);
-		int N = scan.nextInt();
-		
+	public static void main(String[]args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
 		Stack stack = new Stack();
-		
-		for(int i=0;i<=N;i++) {
-			String[] imsi = scan.nextLine().split(" ");
-			if(imsi[0].equals("push")) {
-				stack.push(Integer.parseInt(imsi[1]));
-			}
-			else if(imsi[0].equals("pop"))
+		for(int i=0;i<n;i++) {
+			String ord[] = br.readLine().split(" ");
+			if(ord[0].equals("push")) 
+				stack.push(Integer.parseInt(ord[1]));
+			else if(ord[0].equals("pop"))
 				stack.pop();
-			else if(imsi[0].equals("size"))
+			else if(ord[0].equals("size"))
 				stack.size();
-			else if(imsi[0].equals("empty"))
+			else if(ord[0].equals("empty"))
 				stack.empty();
-			else if(imsi[0].equals("top"))
+			else if(ord[0].equals("top"))
 				stack.top();
 		}
-		
-		scan.close();
+		br.close();
 	}
-
-	
 }
