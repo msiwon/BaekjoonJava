@@ -39,16 +39,16 @@ public class Num10828 {
 		int n = Integer.parseInt(br.readLine());
 		Stack stack = new Stack();
 		for(int i=0;i<n;i++) {
-			String ord[] = br.readLine().split(" ");
-			if(ord[0].equals("push")) 
-				stack.push(Integer.parseInt(ord[1]));
-			else if(ord[0].equals("pop"))
+			String order[] = br.readLine().split(" ");
+			if(order[0].equals("push")) 
+				stack.push(Integer.parseInt(order[1]));
+			else if(order[0].equals("pop"))
 				stack.pop();
-			else if(ord[0].equals("size"))
+			else if(order[0].equals("size"))
 				stack.size();
-			else if(ord[0].equals("empty"))
+			else if(order[0].equals("empty"))
 				stack.empty();
-			else if(ord[0].equals("top"))
+			else if(order[0].equals("top"))
 				stack.top();
 		}
 		br.close();
